@@ -1,0 +1,79 @@
+﻿@page
+@model MascotaFeliz.App.Frontend.Pages.MascotaModel
+@{
+    ViewData["Title"] = "Mascotas";
+}
+
+<div class="row">
+    <div class="col-md-5 animate__animated animate__fadeInLeft">
+        <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-body">
+                <h3 class="fw-bolder mb-0">Registro de Mascota</h3>
+                <p class="fs-6 lead">Ingresa los datos a registrar.</p>
+                <form class="needs-validation clss-form" novalidate>
+                    <div class="row g-3">
+                        <div class="col-12 mt-1">
+                            <label for="nombre" class="form-label mb-0">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" placeholder="Ingresar nombre de mascota"
+                                required>
+                            <div class="invalid-feedback">
+                                Se requiere un nombre válido.
+                            </div>
+                        </div>
+
+                        <div class="col-12 mt-1">
+                            <label for="especie" class="form-label mb-0">Especie</label>
+                            <input type="text" class="form-control" id="especie" placeholder="Ingresar especie animal"
+                                required>
+                            <div class="invalid-feedback">
+                                Se requiere que ingrese la especie.
+                            </div>
+                        </div>
+
+                        <div class="col-12 mt-1">
+                            <label for="color" class="form-label mb-0">Color</label>
+                            <input type="text" class="form-control" id="color" placeholder="Ingresar color animal"
+                                required>
+                            <div class="invalid-feedback">
+                                Se requiere que ingrese el color.
+                            </div>
+                        </div>
+
+                        <div class="col-12 mt-1">
+                            <label for="raza" class="form-label mb-0">Raza</label>
+                            <input type="text" class="form-control" id="raza" placeholder="Ingresar raza" required>
+                            <div class="invalid-feedback">
+                                Se requiere que ingrese el raza.
+                            </div>
+                        </div>
+
+                        <div class="col-12 mt-1">
+                            <label for="propietario" class="form-label mb-0">Propietario</label>
+                            <select class="form-control" id="propietario" aria-label="Default select example">
+                                <option selected>Seleccione el propietario</option>
+                                <option value="1">Daniel Movilla</option>
+                                <option value="2">Pablo Sanchez</option>
+                                <option value="3">Rafael Rico</option>
+                                <option value="4">Gustavo Romero</option>
+                                <option value="5">Jorge Uribe Petro</option>
+                            </select>
+                        </div>
+
+                        <div class="col-12 mt-1">
+                            <label for="veterinario" class="form-label mb-0">Veterinario</label>
+                            <select class="form-control" id="veterinario" aria-label="Default select example">
+                                <option selected>Seleccione el veterinario</option>
+                                <option value="1">Daniel Movilla</option>
+                                <option value="2">Pablo Sanchez</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="w-100 btn btn-primary btn-lg mt-4" type="submit">Registrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7 animate__animated animate__fadeInRight">
+        <img src="~/img/animal.png" class="w-100">
+    </div>
+</div>
