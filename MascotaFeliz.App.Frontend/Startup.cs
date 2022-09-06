@@ -26,6 +26,8 @@ namespace MascotaFeliz.App.Frontend
         {
             services.AddRazorPages();
             services.AddScoped<IRepositorioPropietario, RepositorioPropietario>();
+            services.AddScoped<IRepositorioVeterinario, RepositorioVeterinario>();
+            services.AddScoped<IRepositorioMascota, RepositorioMascota>();
             services.AddDbContext<MascotaFeliz.App.Persistencia.AppContext>();//fue añadida por mi manualmente porque no estaba
             services.AddControllersWithViews();
         }

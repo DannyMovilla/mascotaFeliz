@@ -9,14 +9,17 @@ using MascotaFeliz.App.Dominio;
 
 namespace MascotaFeliz.App.Frontend.Pages
 {
-    public class ConsultarModel : PageModel
+    public class ConsultarPropModel : PageModel
     {
-
+       
         private readonly IRepositorioPropietario repositorioPropietario;
+        
+        [BindProperty(SupportsGet = true)]
+        public Propietario Propietario  { get; set; } 
 
         public IEnumerable<Propietario> propietarios {get;set;}
 
-        public ConsultarModel(IRepositorioPropietario repositorioPropietario)
+        public ConsultarPropModel(IRepositorioPropietario repositorioPropietario)
         {
             this.repositorioPropietario=new RepositorioPropietario(new MascotaFeliz.App.Persistencia.AppContext());
         }
@@ -25,5 +28,6 @@ namespace MascotaFeliz.App.Frontend.Pages
         {
             propietarios = repositorioPropietario.GetAllPropietarios();
         }
+        
     }
 }

@@ -10,11 +10,11 @@
             <div class="card-body">
                 <h3 class="fw-bolder mb-0">Registro de Veterinario</h3>
                 <p class="fs-6 lead">Ingresa los datos a registrar.</p>
-                <form class="needs-validation clss-form" novalidate>
+                <form class="needs-validation clss-form" autocomplete="off" method="post">
                     <div class="row g-3">
                         <div class="col-12 mt-1">
                             <label for="nombre" class="form-label mb-0">Nombres</label>
-                            <input type="text" class="form-control" id="nombre" placeholder="Ingresar nombres" required>
+                            <input type="text" class="form-control" asp-for="Veterinario.Nombres" id="nombre" placeholder="Ingresar nombres" required>
                             <div class="invalid-feedback">
                                 Se requiere un nombre válido.
                             </div>
@@ -22,7 +22,7 @@
 
                         <div class="col-12 mt-1">
                             <label for="apellido" class="form-label mb-0">Apellidos</label>
-                            <input type="text" class="form-control" id="apellido" placeholder="Ingresar apellidos"
+                            <input type="text" class="form-control" asp-for="Veterinario.Apellidos" id="apellido" placeholder="Ingresar apellidos"
                                 required>
                             <div class="invalid-feedback">
                                 Se requiere que ingrese el apellido.
@@ -31,7 +31,7 @@
 
                         <div class="col-12 mt-1">
                             <label for="direccion" class="form-label mb-0">Dirección</label>
-                            <input type="text" class="form-control" id="direccion" placeholder="Ingresar dirección"
+                            <input type="text" class="form-control" asp-for="Veterinario.Direccion" id="direccion" placeholder="Ingresar dirección"
                                 required>
                             <div class="invalid-feedback">
                                 Se requiere que ingrese la dirección.
@@ -40,7 +40,7 @@
 
                         <div class="col-12 mt-1">
                             <label for="telefono" class="form-label mb-0">Teléfono</label>
-                            <input type="text" class="form-control" id="raza" placeholder="Ingresar teléfono" required>
+                            <input type="text" class="form-control" asp-for="Veterinario.Telefono" id="telefono" placeholder="Ingresar teléfono" required>
                             <div class="invalid-feedback">
                                 Se requiere que ingrese el teléfono.
                             </div>
@@ -48,7 +48,7 @@
 
                         <div class="col-12 mt-1">
                             <label for="tarProfesional" class="form-label mb-0">Tarjeta profesional</label>
-                            <input type="email" class="form-control" id="tarProfesional"
+                            <input type="text" class="form-control" id="tarProfesional" asp-for="Veterinario.TarjetaProfesional"
                                 placeholder="Ingresar tarjeta profesional" required>
                             <div class="invalid-feedback">
                                 Se requiere que ingrese la tarjeta profesional.

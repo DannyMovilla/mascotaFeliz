@@ -18,6 +18,6 @@ namespace MascotaFeliz.App.Persistencia
 
         Propietario GetPropietario(int idPropietario);
 
-        IEnumerable<Propietario> GetPropietarioFiltro(String nombre);
+        IEnumerable<Propietario> GetPropietarioFiltro(Propietario propietario);
     }
 }
