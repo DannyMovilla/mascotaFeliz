@@ -17,6 +17,8 @@ namespace MascotaFeliz.App.Frontend.Pages
         [BindProperty(SupportsGet = true)]
         public Propietario Propietario  { get; set; } 
 
+        public Propietario PropietarioDel  { get; set; } 
+
         public IEnumerable<Propietario> propietarios {get;set;}
 
         public ConsultarPropModel(IRepositorioPropietario repositorioPropietario)
@@ -24,9 +26,22 @@ namespace MascotaFeliz.App.Frontend.Pages
             this.repositorioPropietario=new RepositorioPropietario(new MascotaFeliz.App.Persistencia.AppContext());
         }
 
-        public void OnGet()
+        public void OnGet(int idPropietario, Propietario propietario)
         {
-            propietarios = repositorioPropietario.GetAllPropietarios();
+
+            Propietario = propietario;
+            propietarios = repositorioPropietario.GetPropietarioFiltro(Propietario); 
+
+            PropietarioDel = repositorioPropietario.GetPropietario(idPropietario);
+            if (PropietarioDel == null)
+            {
+                RedirectToPage("./NotFound");
+            }
+            else
+            {
+                repositorioPropietario.DeletePropietario(PropietarioDel.Id);
+                Page();
+            } 
         }
         
     }

@@ -64,11 +64,11 @@ namespace MascotaFeliz.App.Persistencia
                 }
                 if(!String.IsNullOrEmpty(propietario.Apellidos))
                 {
-                    propietarios = propietarios.Where(s => s.Nombres.Contains(propietario.Apellidos));
+                    propietarios = propietarios.Where(s => s.Apellidos.Contains(propietario.Apellidos));
                 }
                 if(!String.IsNullOrEmpty(propietario.Correo))
                 {
-                    propietarios = propietarios.Where(s => s.Nombres.Contains(propietario.Correo));
+                    propietarios = propietarios.Where(s => s.Correo.Contains(propietario.Correo));
                 }
             }
             return propietarios;
