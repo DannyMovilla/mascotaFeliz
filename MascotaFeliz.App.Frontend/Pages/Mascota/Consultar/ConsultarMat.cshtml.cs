@@ -14,6 +14,17 @@ namespace MascotaFeliz.App.Frontend.Pages
 
         private readonly IRepositorioMascota repositorioMascota;
 
+        [BindProperty(SupportsGet = true)]
+        public Mascota Mascota  { get; set; } 
+
+        [BindProperty(SupportsGet = true)]
+        public Veterinario Veterinario  { get; set; } 
+
+        [BindProperty(SupportsGet = true)]
+        public Propietario Propietario  { get; set; } 
+
+        public Mascota MascotaDel  { get; set; } 
+
         public IEnumerable<Mascota> mascotas {get;set;}
 
         public ConsultarMatModel(IRepositorioMascota repositorioMascota)
@@ -21,9 +32,24 @@ namespace MascotaFeliz.App.Frontend.Pages
             this.repositorioMascota = new RepositorioMascota(new MascotaFeliz.App.Persistencia.AppContext());
         }
 
-        public void OnGet()
+        public void OnGet(int idMascota, Mascota mascota)
         {
-            mascotas = repositorioMascota.GetAllMascotas();
+
+            Mascota = mascota;
+            Mascota.Propietario = Propietario;
+            Mascota.Veterinario = Veterinario;
+            mascotas = repositorioMascota.GetMascotaFiltro(Mascota); 
+
+            MascotaDel = repositorioMascota.GetMascota(idMascota);
+            if (MascotaDel == null)
+            {
+                RedirectToPage("./NotFound");
+            }
+            else
+            {
+                repositorioMascota.DeleteMascota(MascotaDel.Id);
+                Page();
+            } 
         }
     }
 }

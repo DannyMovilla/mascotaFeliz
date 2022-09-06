@@ -18,6 +18,6 @@ namespace MascotaFeliz.App.Persistencia
 
         Mascota GetMascota(int idMascota);
 
-        IEnumerable<Mascota> GetMascotaFiltro(String nombre);
+        IEnumerable<Mascota> GetMascotaFiltro(Mascota mascota);
     }
 }

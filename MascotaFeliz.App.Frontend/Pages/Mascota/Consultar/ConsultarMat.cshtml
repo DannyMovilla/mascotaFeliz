@@ -12,20 +12,20 @@
     <h3 class="fw-bolder mb-0  text-center">Consultar Mascotas</h3>
     <p class="fs-6 lead  text-center">En esta sección podrás consultar la información de las mascotas</p>
 
-    <form class="row gy-2 gx-3 align-items-end clss-form" autocomplete="off">
+    <form class="row gy-2 gx-3 align-items-end clss-form" autocomplete="off" method="get">
       <div class="col">
         <label for="mascota" class="form-label mb-0">Mascota</label>
-        <input type="text" class="form-control" id="mascota" placeholder="Nombre de la Mascota">
+        <input type="text" class="form-control" id="mascota" asp-for="Mascota.Nombre" placeholder="Nombre de la Mascota">
       </div>
 
       <div class="col">
         <label for="propietario" class="form-label mb-0">Propietario</label>
-        <input type="text" class="form-control" id="propietario" placeholder="Nombre del propietario">
+        <input type="text" class="form-control" id="propietario" asp-for="Propietario.Nombres" placeholder="Nombre del propietario">
       </div>
 
       <div class="col">
         <label for="veterinario" class="form-label mb-0">Veterinario</label>
-        <input type="text" class="form-control" id="veterinario" placeholder="Nombre del veterinario">
+        <input type="text" class="form-control" id="veterinario" asp-for="Veterinario.Nombres" placeholder="Nombre del veterinario">
       </div>
       <button class="btn btn-primary py-2" type="submit" data-toggle="tooltip" data-placement="top" title="Consultar">
         <i class="fa-solid fa-magnifying-glass"></i>
@@ -47,6 +47,7 @@
             <th scope="col">Propietario</th>
             <th scope="col">Veterinario</th>
             <th scope="col">Opciones</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
@@ -90,6 +91,14 @@
                 data-placement="top" title="Asignar Veterinario">
                 <i class="fa-solid fa-user-doctor"></i>
               </a>
+            </td>
+            <td>
+              <form method="get">
+                <input type="hidden" asp-for="@mascota.Id" name="idMascota" />
+                <button type="submit" class="btn btn-danger" data-toggle="tooltip" data-placement="top"  title="Eliminar">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
             </td>
           </tr>
           }

@@ -154,7 +154,6 @@ C:\Users\djmov\Documents\GitHub\MazcotaFeliz\MascotaFeliz.App.Frontend\obj\Debug
 C:\Users\djmov\Documents\GitHub\MazcotaFeliz\MascotaFeliz.App.Frontend\obj\Debug\netcoreapp3.1\Razor\Pages\Mascota\Mascota.cshtml.g.cs
 C:\Users\djmov\Documents\GitHub\MazcotaFeliz\MascotaFeliz.App.Frontend\obj\Debug\netcoreapp3.1\Razor\Pages\Privacy.cshtml.g.cs
 C:\Users\djmov\Documents\GitHub\MazcotaFeliz\MascotaFeliz.App.Frontend\obj\Debug\netcoreapp3.1\Razor\Pages\Propietario\Propietario.cshtml.g.cs
-C:\Users\djmov\Documents\GitHub\MazcotaFeliz\MascotaFeliz.App.Frontend\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\Untitled-1.cshtml.g.cs
 C:\Users\djmov\Documents\GitHub\MazcotaFeliz\MascotaFeliz.App.Frontend\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_Layout.cshtml.g.cs
 C:\Users\djmov\Documents\GitHub\MazcotaFeliz\MascotaFeliz.App.Frontend\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\djmov\Documents\GitHub\MazcotaFeliz\MascotaFeliz.App.Frontend\obj\Debug\netcoreapp3.1\Razor\Pages\Veterinario\Veterinario.cshtml.g.cs

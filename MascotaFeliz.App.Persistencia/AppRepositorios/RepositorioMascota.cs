@@ -54,14 +54,22 @@ namespace MascotaFeliz.App.Persistencia
             return GetAllMascotas_();
         }
 
-        public IEnumerable<Mascota> GetMascotaFiltro(String nombre)
+        public IEnumerable<Mascota> GetMascotaFiltro(Mascota mascota)
         {
             var mascotas = GetAllMascotas();
             if (mascotas != null)
             {
-                if(!String.IsNullOrEmpty(nombre))
+                if(!String.IsNullOrEmpty(mascota.Nombre))
                 {
-                    mascotas = mascotas.Where(s => s.Nombre.Contains(nombre));
+                    mascotas = mascotas.Where(s => s.Nombre.Contains(mascota.Nombre));
+                }
+                if(!String.IsNullOrEmpty(mascota.Propietario.Nombres))
+                {
+                    mascotas = mascotas.Where(s => null != s.Propietario && s.Propietario.Nombres.Contains(mascota.Propietario.Nombres));
+                }
+                if(!String.IsNullOrEmpty(mascota.Veterinario.Nombres))
+                {
+                    mascotas = mascotas.Where(s => null != s.Veterinario && s.Veterinario.Nombres.Contains(mascota.Veterinario.Nombres));
                 }
             }
             return mascotas;
