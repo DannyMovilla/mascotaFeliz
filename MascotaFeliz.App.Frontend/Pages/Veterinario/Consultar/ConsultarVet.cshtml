@@ -11,20 +11,22 @@
         <h3 class="fw-bolder mb-0  text-center">Consultar Veterinario</h3>
         <p class="fs-6 lead  text-center">En esta sección podrás consultar la información de los veterinarios</p>
 
-        <form class="row gy-2 gx-3 align-items-end clss-form">
+        <form class="row gy-2 gx-3 align-items-end clss-form" method="get">
             <div class="col">
                 <label for="nombres" class="form-label mb-0">Nombres</label>
-                <input type="text" class="form-control" id="nombres" placeholder="Ingresar Nombre">
+                <input type="text" class="form-control" id="nombres" asp-for="Veterinario.Nombres"
+                    placeholder="Ingresar Nombre">
             </div>
 
             <div class="col">
                 <label for="apellidos" class="form-label mb-0">Apellidos</label>
-                <input type="text" class="form-control" id="apellidos" placeholder="Ingresar apellidos">
+                <input type="text" class="form-control" id="apellidos" asp-for="Veterinario.Apellidos"
+                    placeholder="Ingresar apellidos">
             </div>
 
             <div class="col">
                 <label for="tarjetaProfesional" class="form-label mb-0">Tarjeta Profesional</label>
-                <input type="text" class="form-control" id="tarjetaProfesional"
+                <input type="text" class="form-control" id="tarjetaProfesional" asp-for="Veterinario.TarjetaProfesional"
                     placeholder="Ingresar tarjeta profesional">
             </div>
             <button class="btn btn-primary py-2" type="submit" data-toggle="tooltip" data-placement="top"
@@ -42,8 +44,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">Nombres</th>
-                        <th scope="col">Apellidos</th>
+                        <th scope="col">Nombre</th>
                         <th scope="col">Direccion</th>
                         <th scope="col">Telefono</th>
                         <th scope="col">Tarjeta Profesional</th>
@@ -54,8 +55,7 @@
                     @foreach (var veterinario in Model.veterinarios)
                     {
                     <tr>
-                        <td>@veterinario.Nombres</td>
-                        <td>@veterinario.Apellidos</td>
+                        <td>@veterinario.Nombres @veterinario.Apellidos</td>
                         <td>@veterinario.Direccion</td>
                         <td>@veterinario.Telefono</td>
                         <td>@veterinario.TarjetaProfesional</td>
@@ -65,6 +65,14 @@
                                 title="Editar">
                                 <i class="fa-solid fa-pen-to-square"></i>
                             </a>
+                        </td>
+                        <td>
+                            <form method="get">
+                                <input type="hidden" asp-for="@veterinario.Id" name="idVeterinario" />
+                                <button type="submit" class="btn btn-danger" title="Eliminar">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </form>
                         </td>
                     </tr>
                     }

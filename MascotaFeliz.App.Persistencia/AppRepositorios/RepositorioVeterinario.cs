@@ -52,14 +52,22 @@ namespace MascotaFeliz.App.Persistencia
             return GetAllVeterinarios_();
         }
 
-        public IEnumerable<Veterinario> GetVeterinarioFiltro(String nombre)
+        public IEnumerable<Veterinario> GetVeterinarioFiltro(Veterinario veterinario)
         {
             var veterinarios = GetAllVeterinarios();
             if (veterinarios != null)
             {
-                if(!String.IsNullOrEmpty(nombre))
+                if(!String.IsNullOrEmpty(veterinario.Nombres))
                 {
-                    veterinarios = veterinarios.Where(s => s.Nombres.Contains(nombre));
+                    veterinarios = veterinarios.Where(s => s.Nombres.Contains(veterinario.Nombres));
+                }
+                if(!String.IsNullOrEmpty(veterinario.Apellidos))
+                {
+                    veterinarios = veterinarios.Where(s => s.Apellidos.Contains(veterinario.Apellidos));
+                }
+                if(!String.IsNullOrEmpty(veterinario.TarjetaProfesional))
+                {
+                    veterinarios = veterinarios.Where(s => s.TarjetaProfesional.Contains(veterinario.TarjetaProfesional));
                 }
             }
             return veterinarios;

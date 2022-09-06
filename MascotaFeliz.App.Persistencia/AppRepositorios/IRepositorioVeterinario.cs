@@ -18,6 +18,6 @@ namespace MascotaFeliz.App.Persistencia
 
         Veterinario GetVeterinario(int idVeterinario);
 
-        IEnumerable<Veterinario> GetVeterinarioFiltro(String nombre);
+        IEnumerable<Veterinario> GetVeterinarioFiltro(Veterinario veterinario);
     }
 }
