@@ -171,3 +171,4 @@ C:\Users\djmov\Documents\GitHub\MazcotaFeliz\MascotaFeliz.App.Frontend\obj\Debug
 C:\Users\djmov\Documents\GitHub\MazcotaFeliz\MascotaFeliz.App.Frontend\obj\Debug\netcoreapp3.1\Razor\Pages\Propietario\Consultar\ConsultarProp.cshtml.g.cs
 C:\Users\djmov\Documents\GitHub\MazcotaFeliz\MascotaFeliz.App.Frontend\obj\Debug\netcoreapp3.1\Razor\Pages\Veterinario\Consultar\ConsultarVet.cshtml.g.cs
 C:\Users\djmov\Documents\GitHub\MazcotaFeliz\MascotaFeliz.App.Frontend\obj\Debug\netcoreapp3.1\Razor\Pages\Mascota\Consultar\ConsultarMat.cshtml.g.cs
+C:\Users\djmov\Documents\GitHub\MazcotaFeliz\MascotaFeliz.App.Frontend\obj\Debug\netcoreapp3.1\Razor\Pages\Mascota\Asignacion\Asignar.cshtml.g.cs

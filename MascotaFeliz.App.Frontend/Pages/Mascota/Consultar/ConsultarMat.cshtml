@@ -61,7 +61,7 @@
 
               @try
               {
-              @mascota.Propietario.Nombres @mascota.Propietario.Apellidos
+              @mascota.Propietario.Nombres <b></b> @mascota.Propietario.Apellidos
               }
               catch (Exception)
               {
@@ -71,7 +71,7 @@
             <td>
               @try
               {
-              @mascota.Veterinario.Nombres @mascota.Veterinario.Apellidos
+              @mascota.Veterinario.Nombres <b></b> @mascota.Veterinario.Apellidos
               }
               catch (Exception)
               {
@@ -83,13 +83,9 @@
                 data-placement="top" title="Editar">
                 <i class="fa-solid fa-pen-to-square"></i>
               </a>
-              <a class="btn btn-primary" asp-page="../Mascota" asp-route-mascotaId="@mascota.Id" data-toggle="tooltip"
-                data-placement="top" title="Asignar Propietario">
-                <i class="fa-solid fa-user-pen"></i>
-              </a>
-              <a class="btn btn-primary" asp-page="../Mascota" asp-route-mascotaId="@mascota.Id" data-toggle="tooltip"
-                data-placement="top" title="Asignar Veterinario">
-                <i class="fa-solid fa-user-doctor"></i>
+              <a class="btn btn-primary" asp-page="../Asignacion/Asignar" asp-route-mascotaId="@mascota.Id" data-toggle="tooltip"
+                data-placement="top" title="Asignar Propietario y Veterinario">
+                <i class="fa-solid fa-users-gear"></i>
               </a>
             </td>
             <td>
