@@ -63,13 +63,13 @@ namespace MascotaFeliz.App.Persistencia
                 {
                     mascotas = mascotas.Where(s => s.Nombre.Contains(mascota.Nombre));
                 }
-                if(!String.IsNullOrEmpty(mascota.Propietario.Nombres))
+                if(mascota.Propietario.Id != 0)
                 {
-                    mascotas = mascotas.Where(s => null != s.Propietario && s.Propietario.Nombres.Contains(mascota.Propietario.Nombres));
+                    mascotas = mascotas.Where(s => null != s.Propietario && s.Propietario.Id == mascota.Propietario.Id);
                 }
-                if(!String.IsNullOrEmpty(mascota.Veterinario.Nombres))
+                if(mascota.Veterinario.Id != 0)
                 {
-                    mascotas = mascotas.Where(s => null != s.Veterinario && s.Veterinario.Nombres.Contains(mascota.Veterinario.Nombres));
+                    mascotas = mascotas.Where(s => null != s.Veterinario && s.Veterinario.Id == mascota.Veterinario.Id);
                 }
             }
             return mascotas;

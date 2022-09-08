@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "1h8Nx6AXf1/FMYssw1Kck4C25NbMmXXuZrT1xVU0L24NrBOZ0dNvhnqN73ltJq/S3q7GNj9cQVDWvGCm4uVrTg==",
+  "dgSpecHash": "8isur97XXrLEUg2nh5TZMfPMmXnK0GtAL8VB2g2HfsjfwczrUAyniO1NsxWswe8x5gNT8BDGp5by0Ph+mjK2Gw==",
   "success": true,
   "projectFilePath": "C:\\Users\\djmov\\Documents\\GitHub\\MazcotaFeliz\\MascotaFeliz.App.Dominio\\MascotaFeliz.App.Dominio.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\djmov\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\djmov\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\djmov\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\djmov\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

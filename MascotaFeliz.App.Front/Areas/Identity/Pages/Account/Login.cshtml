@@ -1,0 +1,54 @@
+@page
+@model LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="row">
+    <div class="col-md-5 animate__animated animate__fadeInLeft">
+        <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-body">
+                <h3 class="fw-bolder mb-0">Login Mascota Feliz</h3>
+                <p class="fs-6 lead">Ingresa los datos para realizar el Login</p>
+                <form id="account" class="needs-validation clss-form" autocomplete="off" method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="row g-3">
+                        <div class="col-12 mt-1">
+                            <label asp-for="Input.Email" class="form-label mb-0">Correo</label>
+                            <input asp-for="Input.Email" class="form-control" />
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-12 mt-1">
+                            <label asp-for="Input.Password" class="form-label mb-0">Contraseña</label>
+                            <input asp-for="Input.Password" class="form-control" />
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-12 mt-1">
+                            <div class="checkbox">
+                                <label asp-for="Input.RememberMe">
+                                    <input asp-for="Input.RememberMe" />
+                                    @Html.DisplayNameFor(m => m.Input.RememberMe)
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <button class="w-100 btn btn-primary btn-lg mt-4" type="submit">Ingresar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7 animate__animated animate__fadeInRight">
+        <img src="~/img/propietario.png" class="w-100">
+    </div>
+</div>
+
+<script>
+    document.querySelector("#menuInicio").classList.add("active");
+</script>
+
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+}

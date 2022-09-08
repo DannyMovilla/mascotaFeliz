@@ -1,0 +1,76 @@
+﻿@page
+@model MascotaFeliz.App.Frontend.Pages.VeterinarioModel
+@{
+    ViewData["Title"] = "Veterinarios";
+}
+
+<div class="row">
+    <div class="col-md-5 animate__animated animate__fadeInLeft">
+        <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-body">
+                <h3 class="fw-bolder mb-0">Registro de Veterinario</h3>
+                <p class="fs-6 lead">Ingresa los datos a registrar.</p>
+                <form class="needs-validation clss-form" autocomplete="off" method="post">
+                    <input type="hidden" asp-for="Veterinario.Id" />
+                    <div class="row g-3">
+                        <div class="col-12 mt-1">
+                            <label for="nombre" asp-for="Veterinario.Nombres" class="form-label mb-0">Nombres</label>
+                            <input type="text" class="form-control" asp-for="Veterinario.Nombres" id="nombre"
+                                placeholder="Ingresar nombres">
+                            <span class="text-danger" asp-validation-for="Veterinario.Nombres"></span>
+                        </div>
+
+                        <div class="col-12 mt-1">
+                            <label for="apellido" asp-for="Veterinario.Apellidos"
+                                class="form-label mb-0">Apellidos</label>
+                            <input type="text" class="form-control" asp-for="Veterinario.Apellidos" id="apellido"
+                                placeholder="Ingresar apellidos">
+                            <span class="text-danger" asp-validation-for="Veterinario.Apellidos"></span>
+                        </div>
+
+                        <div class="col-12 mt-1">
+                            <label for="direccion" asp-for="Veterinario.Direccion"
+                                class="form-label mb-0">Dirección</label>
+                            <input type="text" class="form-control" asp-for="Veterinario.Direccion" id="direccion"
+                                placeholder="Ingresar dirección">
+                            <span class="text-danger" asp-validation-for="Veterinario.Direccion"></span>
+                        </div>
+
+                        <div class="col-12 mt-1">
+                            <label for="telefono" asp-for="Veterinario.Telefono"
+                                class="form-label mb-0">Teléfono</label>
+                            <input type="text" class="form-control" asp-for="Veterinario.Telefono" id="telefono"
+                                placeholder="Ingresar teléfono">
+                            <span class="text-danger" asp-validation-for="Veterinario.Telefono"></span>
+                        </div>
+
+                        <div class="col-12 mt-1">
+                            <label for="tarProfesional" asp-for="Veterinario.TarjetaProfesional"
+                                class="form-label mb-0">Tarjeta profesional</label>
+                            <input type="text" class="form-control" id="tarProfesional"
+                                asp-for="Veterinario.TarjetaProfesional" placeholder="Ingresar tarjeta profesional">
+                            <span class="text-danger" asp-validation-for="Veterinario.TarjetaProfesional"></span>
+                        </div>
+
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-6 mt-1">
+                            <button class="w-100 btn btn-primary btn-lg mt-4" type="submit">Registrar</button>
+                        </div>
+                        <div class="col-6 mt-1">
+                            <a class="w-100 btn btn-danger mt-4" style="color: white;"
+                                asp-page="./Consultar/ConsultarVet">Regresar</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7 animate__animated animate__fadeInRight">
+        <img src="~/img/veterinario.png" class="w-100">
+    </div>
+</div>
+
+<script>
+    document.querySelector("#menuVeterinario").classList.add("active");
+</script>

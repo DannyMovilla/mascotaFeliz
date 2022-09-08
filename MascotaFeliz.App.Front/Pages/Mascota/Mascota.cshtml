@@ -1,0 +1,65 @@
+﻿@page
+@model MascotaFeliz.App.Frontend.Pages.MascotaModel
+@{
+    ViewData["Title"] = "Mascotas";
+    int mascotaId = Model.Mascota.Id;
+}
+
+<div class="row">
+    <div class="col-md-5 animate__animated animate__fadeInLeft">
+        <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-body">
+                <h3 class="fw-bolder mb-0">Registro de Mascota</h3>
+                <p class="fs-6 lead">Ingresa los datos a registrar.</p>
+                <form class="needs-validation clss-form" autocomplete="off" method="post">
+                    <input type="hidden" asp-for="Mascota.Id" />
+                    <div class="row g-3">
+                        <div class="col-12 mt-1">
+                            <label for="nombre" asp-for="Mascota.Nombre" class="form-label mb-0">Nombre</label>
+                            <input type="text" class="form-control" asp-for="Mascota.Nombre" id="nombre"
+                                placeholder="Ingresar nombre de mascota">
+                            <span class="text-danger" asp-validation-for="Mascota.Nombre"></span>
+                        </div>
+
+                        <div class="col-12 mt-1">
+                            <label for="especie" asp-for="Mascota.Especie" class="form-label mb-0">Especie</label>
+                            <input type="text" class="form-control" asp-for="Mascota.Especie" id="especie"
+                                placeholder="Ingresar especie animal">
+                            <span class="text-danger" asp-validation-for="Mascota.Especie"></span>
+                        </div>
+
+                        <div class="col-12 mt-1">
+                            <label for="color" asp-for="Mascota.Color" class="form-label mb-0">Color</label>
+                            <input type="text" class="form-control" asp-for="Mascota.Color" id="color"
+                                placeholder="Ingresar color animal">
+                            <span class="text-danger" asp-validation-for="Mascota.Color"></span>
+                        </div>
+
+                        <div class="col-12 mt-1">
+                            <label for="raza" asp-for="Mascota.Raza" class="form-label mb-0">Raza</label>
+                            <input type="text" class="form-control" id="raza" asp-for="Mascota.Raza"
+                                placeholder="Ingresar raza">
+                            <span class="text-danger" asp-validation-for="Mascota.Raza"></span>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-6 mt-1">
+                            <button class="w-100 btn btn-primary btn-lg mt-4" type="submit">Registrar</button>
+                        </div>
+                        <div class="col-6 mt-1">
+                            <a class="w-100 btn btn-danger mt-4" style="color: white;"
+                                asp-page="./Consultar/ConsultarMat">Regresar</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7 animate__animated animate__fadeInRight">
+        <img src="~/img/animal.png" class="w-100">
+    </div>
+</div>
+
+<script>
+    document.querySelector("#menuMascota").classList.add("active");
+</script>

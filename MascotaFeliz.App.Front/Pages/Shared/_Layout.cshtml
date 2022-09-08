@@ -1,0 +1,79 @@
+﻿@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="App Mascota Feliz">
+    <meta name="author" content="Software Suite Soluncions">
+    <meta name="generator" content="Version 1.0">
+    <title>@ViewData["Title"] - Mascota Feliz</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/pricing/">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header id="registrar">
+        <div class="container py-3">
+            <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4">
+                <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+                    <img src="~/img/logo.png" style="width: 72px; margin-left: 20px; margin-right: 20px;">
+                </a>
+                <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+                    <a id="menuInicio" class="btn btn-outline-light" asp-area="" asp-page="/Index">Inicio</a>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <a id="menuPropietario" class="btn btn-outline-light" asp-area=""
+                        asp-page="/Propietario/Consultar/ConsultarProp">Propietarios</a>
+                        <a id="menuVeterinario" class="btn btn-outline-light" asp-area=""
+                        asp-page="/Veterinario/Consultar/ConsultarVet">Veterinarios</a>
+                        <a id="menuMascota" class="btn btn-outline-light" asp-area="" asp-page="/Mascota/Consultar/ConsultarMat">Mascotas</a>
+                        <!--<a class="btn btn-outline-light" asp-area="" asp-page="/Visita/Visita">Visita</a>                        <a id="claims" class="btn btn-outline-light" asp-area="" asp-page="/Claim">Claims</a>
+                        <a id="manage" class="btn btn-outline-light" asp-area="Identity" asp-page="/Account/Manage/Index"
+                        title="Manage">Perfil</a>-->
+
+                        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout"
+                        asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+                            <button id="logout" type="submit" class="btn btn-outline-light" title="Salir">
+                                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                            </button>
+                        </form>
+                    }
+                    else
+                    {
+                        <a id="menuRegistro" class="btn btn-outline-light" asp-area="Identity" asp-page="/Account/Register">Registrarse</a>
+                        <a id="menuLogin" class="btn btn-outline-light" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                    }
+                    
+                </nav>
+            </div>
+            @RenderBody()
+        </div>
+    </header>
+    @RenderSection("Consultar",false)
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - Mascota Feliz - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>

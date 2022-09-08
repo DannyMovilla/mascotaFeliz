@@ -2072,6 +2072,9 @@
       "MascotaFeliz.App.Dominio/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "System.ComponentModel.Annotations": "5.0.0"
+        },
         "compile": {
           "bin/placeholder/MascotaFeliz.App.Dominio.dll": {}
         },
@@ -7285,6 +7288,7 @@
       },
       "frameworks": {
         "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
           "projectReferences": {
             "C:\\Users\\djmov\\Documents\\GitHub\\MazcotaFeliz\\MascotaFeliz.App.Dominio\\MascotaFeliz.App.Dominio.csproj": {
               "projectPath": "C:\\Users\\djmov\\Documents\\GitHub\\MazcotaFeliz\\MascotaFeliz.App.Dominio\\MascotaFeliz.App.Dominio.csproj"
@@ -7300,6 +7304,7 @@
     },
     "frameworks": {
       "netstandard2.1": {
+        "targetAlias": "netstandard2.1",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
@@ -7337,7 +7342,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.422\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
       }
     }
   }
