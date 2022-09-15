@@ -30,6 +30,7 @@ namespace MascotaFeliz.App.Front
             services.AddScoped<IRepositorioVeterinario, RepositorioVeterinario>();
             services.AddScoped<IRepositorioMascota, RepositorioMascota>();
             services.AddScoped<IRepositorioVisita, RepositorioVisita>();
+            services.AddScoped<IRepositorioHistoria, RepositorioHistoria>();
             services.AddDbContext<MascotaFeliz.App.Persistencia.AppContext>();
             services.AddControllersWithViews();
         }

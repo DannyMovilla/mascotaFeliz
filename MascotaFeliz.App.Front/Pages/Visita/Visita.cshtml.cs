@@ -16,12 +16,16 @@ namespace MascotaFeliz.App.Frontend.Pages
         private readonly IRepositorioVisita repositorioVisita;
         private static IRepositorioVeterinario repositorioVeterinario = new RepositorioVeterinario(new Persistencia.AppContext());
         private static IRepositorioMascota repositorioMascota = new RepositorioMascota(new Persistencia.AppContext());
+        private static IRepositorioHistoria repositorioHistoria = new RepositorioHistoria(new Persistencia.AppContext());
 
         [BindProperty]
-        public Visita Visita  { get; set; } 
-        public Mascota Mascota { get; set; }
+        public Visita VisitaSave  { get; set; } 
+
+        [BindProperty]
+        public Mascota mascotaSave { get; set; }
 
         public IEnumerable<Veterinario> veterinarios {get; set;}
+        public IEnumerable<Mascota> mascotas {get; set;}
 
         public VisitaModel(IRepositorioVisita repositorioVisita)
         {
@@ -31,16 +35,14 @@ namespace MascotaFeliz.App.Frontend.Pages
         public IActionResult OnGet(int? mascotaId)
         {   
             veterinarios = repositorioVeterinario.GetAllVeterinarios();
+            VisitaSave = new Visita();
             
             if (mascotaId.HasValue)
             {
-                Mascota = repositorioMascota.GetMascota(mascotaId.Value);
+                mascotaSave = repositorioMascota.GetMascota(mascotaId.Value);
             }
-            else
-            {
-                Visita = new Visita();
-            }
-            if (Visita == null)
+            
+            if (mascotaSave == null)
             {
                 return RedirectToPage("./NotFound");
             }
@@ -49,19 +51,24 @@ namespace MascotaFeliz.App.Frontend.Pages
 
         }
 
-        public IActionResult OnPost()
+        public IActionResult OnPost(Visita VisitaSave, Mascota mascotaSave)
         {
             if(!ModelState.IsValid)
             {
-                if(Visita.Id>0)
-                {
-                    Visita = repositorioVisita.UpdateVisita(Visita);
+                mascotaSave = repositorioMascota.GetMascota(mascotaSave.Id);
+
+                if(Object.ReferenceEquals(null, mascotaSave.HistoriaClinica)){
+                    var historia = new HistoriaClinica{
+                        FechaInicio = new DateTime(2022,09,15),
+                        Visita = new List<Visita> {
+                            VisitaSave
+                        }
+                    };
+                    mascotaSave.HistoriaClinica = repositorioHistoria.AddHistoria(historia);
+                    repositorioMascota.UpdateMascota(mascotaSave);
                 }
-                else
-                {
-                    repositorioVisita.AddVisita(Visita);
-                }
-                return Page();
+            
+                return RedirectToPage("../Mascota/Consultar/ConsultarMat");
             }
             else
             {            

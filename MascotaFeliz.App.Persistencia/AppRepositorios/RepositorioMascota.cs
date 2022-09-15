@@ -77,12 +77,12 @@ namespace MascotaFeliz.App.Persistencia
 
         public IEnumerable<Mascota> GetAllMascotas_()
         {
-            return _appContext.Mascotas.Include("Propietario").Include("Veterinario");
+            return _appContext.Mascotas.Include("Propietario").Include("Veterinario").Include("HistoriaClinica");
         }
 
         public Mascota GetMascota(int idMascota)
         {
-            return _appContext.Mascotas.Include("Propietario").Include("Veterinario").FirstOrDefault(d => d.Id == idMascota);
+            return _appContext.Mascotas.Include("Propietario").Include("Veterinario").Include("HistoriaClinica").FirstOrDefault(d => d.Id == idMascota);
         }
     }
 }
