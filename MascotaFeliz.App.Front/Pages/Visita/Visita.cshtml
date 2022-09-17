@@ -22,6 +22,16 @@
                                 readonly>
                         </div>
 
+                        <div class="col-12 mt-1">
+                            @Html.LabelFor(model => model.VisitaSave.FechaVisita, htmlAttributes: new { @class =
+                            "form-label mb-0" })
+                            @Html.TextBoxFor(model => model.VisitaSave.FechaVisita, new { @type="date", @class =
+                            "form-control datepicker", @Value = Model.VisitaSave.FechaVisita.ToString("yyyy-MM-dd")
+                            } )
+                            @Html.ValidationMessageFor(model => model.VisitaSave.FechaVisita, "", new { @class =
+                            "text-danger" })
+                        </div>
+
                         <div class="col-6 mt-1">
                             <label for="temperatura" asp-for="VisitaSave.Temperatura"
                                 class="form-label mb-0">Temperatura</label>

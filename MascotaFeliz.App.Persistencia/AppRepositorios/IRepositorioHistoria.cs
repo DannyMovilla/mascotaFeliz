@@ -10,6 +10,8 @@ namespace MascotaFeliz.App.Persistencia
     {
         HistoriaClinica AddHistoria (HistoriaClinica historia);
 
+        HistoriaClinica UpdateHistoria (HistoriaClinica historia);
+
         IEnumerable<Visita> GetVisitaHistoria(int idHistoria);
     }
 }

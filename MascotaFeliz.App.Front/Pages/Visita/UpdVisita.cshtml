@@ -1,0 +1,102 @@
+﻿@page
+@model MascotaFeliz.App.Frontend.Pages.UpdVisitaModel
+@{
+    ViewData["Title"] = "Visita";
+
+    int visitaId = Model.Visita.Id;
+}
+
+<div class="row">
+    <div class="col-md-5 animate__animated animate__fadeInLeft">
+        <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-body">
+                <h3 class="fw-bolder mb-0">Visitas</h3>
+                <p class="fs-6 lead">Ingresa los datos a registrar.</p>
+                <form class="needs-validation clss-form" autocomplete="off" method="post">
+                    <input type="hidden" asp-for="Visita.Id" />
+                    <div class="row g-3">
+
+                        <div class="col-12 mt-1">
+                            @Html.LabelFor(model => model.Visita.FechaVisita, htmlAttributes: new { @class =
+                            "form-label mb-0" })
+                            @Html.TextBoxFor(model => model.Visita.FechaVisita, new { @type="date", @class =
+                            "form-control datepicker", @Value = Model.Visita.FechaVisita.ToString("yyyy-MM-dd")
+                            } )
+                            @Html.ValidationMessageFor(model => model.Visita.FechaVisita, "", new { @class =
+                            "text-danger" })
+                        </div>
+
+                        <div class="col-6 mt-1">
+                            <label for="temperatura" asp-for="Visita.Temperatura" class="form-label mb-0">Temperatura</label>
+                            <input type="number" asp-for="Visita.Temperatura" class="form-control" id="temperatura"
+                                placeholder="Ingresar nombres">
+                            <span class="text-danger" asp-validation-for="Visita.Temperatura"></span>
+                        </div>
+
+                        <div class="col-6 mt-1">
+                            <label for="peso" asp-for="Visita.Peso" class="form-label mb-0">Peso</label>
+                            <input type="number" asp-for="Visita.Peso" class="form-control" id="peso"
+                                placeholder="Ingresar peso">
+                            <span class="text-danger" asp-validation-for="Visita.Peso"></span>
+
+                        </div>
+
+                        <div class="col-6 mt-1">
+                            <label for="frecuenciaRespiratoria" asp-for="Visita.FrecuenciaRespiratoria"
+                                class="form-label mb-0">Frecuencia Respiratoria</label>
+                            <input type="number" asp-for="Visita.FrecuenciaRespiratoria" class="form-control"
+                                id="frecuenciaRespiratoria" placeholder="Ingresar frecuencia respiratoria">
+                            <span class="text-danger" asp-validation-for="Visita.FrecuenciaRespiratoria"></span>
+                        </div>
+
+                        <div class="col-6 mt-1">
+                            <label for="frecuenciaCardiaca" asp-for="Visita.FrecuenciaCardiaca"
+                                class="form-label mb-0">Frecuencia Cardiaca</label>
+                            <input type="number" asp-for="Visita.FrecuenciaCardiaca" class="form-control"
+                                id="frecuenciaCardiaca" placeholder="Ingresar frecuencia cardiaca">
+                            <span class="text-danger" asp-validation-for="Visita.FrecuenciaCardiaca"></span>
+                        </div>
+
+                        <div class="col-12 mt-1">
+                            <label for="estadoAnimo" asp-for="Visita.EstadoAnimo" class="form-label mb-0">Estado
+                                Animo</label>
+                            <input type="text" asp-for="Visita.EstadoAnimo" class="form-control" id="estadoAnimo"
+                                placeholder="Ingresar estado animo">
+                            <span class="text-danger" asp-validation-for="Visita.EstadoAnimo"></span>
+                        </div>
+
+                        <div class="col-12 mt-1">
+                            <label for="recomendaciones" asp-for="Visita.Recomendaciones"
+                                class="form-label mb-0">Recomendaciones</label>
+                            <input type="text" asp-for="Visita.Recomendaciones" class="form-control"
+                                id="recomendaciones" placeholder="Ingresar recomendaciones">
+                            <span class="text-danger" asp-validation-for="Visita.Recomendaciones"></span>
+                        </div>
+
+                        <div class="col-12 mt-1">
+                            <label for="veterinario" asp-for="Visita.IdVeterinario" class="form-label mb-0">Veterinario</label>
+                            <select class="form-control" id="veterinario" asp-for="Visita.IdVeterinario">
+                                <option value="">Seleccione el veterinario</option>
+                                @foreach (var veterinario in Model.veterinarios)
+                                {
+                                    <option value="@veterinario.Id">@veterinario.Nombres @veterinario.Apellidos</option>
+                                }
+                            </select>
+                            <span class="text-danger" asp-validation-for="Visita.IdVeterinario"></span>
+                        </div>
+
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-6 mt-1">
+                            <button class="w-100 btn btn-primary btn-lg mt-4" type="submit">Registrar</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7 animate__animated animate__fadeInRight">
+        <img src="~/img/visita.png" class="w-100">
+    </div>
+</div>

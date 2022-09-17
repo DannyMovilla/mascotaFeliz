@@ -175,3 +175,5 @@ C:\Users\djmov\Documents\GitHub\MazcotaFeliz\MascotaFeliz.App.Front\obj\Debug\ne
 C:\Users\djmov\Documents\GitHub\MazcotaFeliz\MascotaFeliz.App.Front\obj\Debug\net5.0\Razor\Pages\Veterinario\Consultar\ConsultarVet.cshtml.g.cs
 C:\Users\djmov\Documents\GitHub\MazcotaFeliz\MascotaFeliz.App.Front\obj\Debug\net5.0\Razor\Pages\Veterinario\Veterinario.cshtml.g.cs
 C:\Users\djmov\Documents\GitHub\MazcotaFeliz\MascotaFeliz.App.Front\obj\Debug\net5.0\Razor\Pages\Visita\Visita.cshtml.g.cs
+C:\Users\djmov\Documents\GitHub\MazcotaFeliz\MascotaFeliz.App.Front\obj\Debug\net5.0\Razor\Pages\Mascota\Historial\Historial.cshtml.g.cs
+C:\Users\djmov\Documents\GitHub\MazcotaFeliz\MascotaFeliz.App.Front\obj\Debug\net5.0\Razor\Pages\Visita\UpdVisita.cshtml.g.cs

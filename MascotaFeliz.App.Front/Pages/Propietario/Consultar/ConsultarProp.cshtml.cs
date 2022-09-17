@@ -13,8 +13,12 @@ namespace MascotaFeliz.App.Frontend.Pages
     [Authorize]
     public class ConsultarPropModel : PageModel
     {
+
+        [TempData]
+        public string StatusMessage {get;set;}
        
         private readonly IRepositorioPropietario repositorioPropietario;
+        private static IRepositorioMascota repositorioMascota = new RepositorioMascota(new Persistencia.AppContext());
         
         [BindProperty(SupportsGet = true)]
         public Propietario Propietario  { get; set; } 
@@ -41,7 +45,25 @@ namespace MascotaFeliz.App.Frontend.Pages
             }
             else
             {
-                repositorioPropietario.DeletePropietario(PropietarioDel.Id);
+                Mascota dataMacota = new Mascota();
+                dataMacota.Propietario = PropietarioDel;
+
+                Veterinario dataVeterinario = new Veterinario();
+                dataVeterinario.Id = 0;
+
+                dataMacota.Veterinario = dataVeterinario;
+
+                IEnumerable<Mascota> mascotas = repositorioMascota.GetMascotaFiltro(dataMacota); 
+
+                if(mascotas.Count() == 0){
+                    repositorioPropietario.DeletePropietario(PropietarioDel.Id);
+                    //StatusMessage = "Información eliminada correctamente.";
+                }
+                else
+                {
+                    //StatusMessage = "No se puede eliminar por que información asociada.";
+                }
+                
                 Page();
             } 
         }

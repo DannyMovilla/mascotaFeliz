@@ -1,0 +1,42 @@
+﻿@page
+@model MascotaFeliz.App.Frontend.Pages.HistorialModel
+@{
+    ViewData["Title"] = "Historia Clinica";
+    int mascotaId = Model.Mascota.Id;
+}
+
+@section Consultar
+{
+<div id="consultar" class="container py-3 mt-3 animate__animated animate__fadeInLeft">
+    <div class="p-3 pb-md-4 mx-auto border-bottom">
+        <h3 class="fw-bolder mb-0  text-center">Historia Clinica De <strong>@Model.Mascota.Nombre</strong> </h3>
+        <p class="fs-6 lead  text-center">En esta sección podrás visualizar las Visitas PyP</p>
+    </div>
+    <main>
+        <div class="table-responsive mt-3">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Temperatura</th>
+                        <th scope="col">Peso</th>
+                        <th scope="col">EstadoAnimo</th>
+                        <th scope="col">FechaVisita</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var visita in Model.visitas)
+                    {
+                    <tr>
+                        <td>@visita.Temperatura</td>
+                        <td>@visita.Peso</td>
+                        <td>@visita.EstadoAnimo</td>
+                        <td>@visita.FechaVisita.ToString("dd/MM/yyyy")</td>
+                    </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </main>
+</div>
+}

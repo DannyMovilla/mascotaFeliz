@@ -46,7 +46,7 @@ namespace MascotaFeliz.App.Frontend.Pages
         
         public IActionResult OnPost()
         {
-             if (ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 if (Mascota.Id > 0)
                 {

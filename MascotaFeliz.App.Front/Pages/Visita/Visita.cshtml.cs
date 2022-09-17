@@ -58,14 +58,28 @@ namespace MascotaFeliz.App.Frontend.Pages
                 mascotaSave = repositorioMascota.GetMascota(mascotaSave.Id);
 
                 if(Object.ReferenceEquals(null, mascotaSave.HistoriaClinica)){
+                    
+                    DateTime localDate = DateTime.Now;
+
                     var historia = new HistoriaClinica{
-                        FechaInicio = new DateTime(2022,09,15),
+                        FechaInicio = DateTime.Now,
                         Visita = new List<Visita> {
                             VisitaSave
                         }
                     };
                     mascotaSave.HistoriaClinica = repositorioHistoria.AddHistoria(historia);
                     repositorioMascota.UpdateMascota(mascotaSave);
+                }else{
+                    var historia = mascotaSave.HistoriaClinica;
+                   
+                    IEnumerable<Visita> dataList = repositorioHistoria.GetVisitaHistoria(historia.Id);
+
+                    var visitas = new List<Visita>(dataList);
+                    visitas.Add(VisitaSave);
+
+                    historia.Visita = visitas;
+
+                    repositorioHistoria.UpdateHistoria(historia);
                 }
             
                 return RedirectToPage("../Mascota/Consultar/ConsultarMat");

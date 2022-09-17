@@ -13,6 +13,8 @@ namespace MascotaFeliz.App.Frontend.Pages
     [Authorize]
     public class VeterinarioModel : PageModel
     {
+        [TempData]
+        public string StatusMessage {get;set;}
 
         private readonly IRepositorioVeterinario repositorioVeterinario;
 
@@ -51,11 +53,11 @@ namespace MascotaFeliz.App.Frontend.Pages
             }
             if(Veterinario.Id>0)
             {
-            Veterinario = repositorioVeterinario.UpdateVeterinario(Veterinario);
+                Veterinario = repositorioVeterinario.UpdateVeterinario(Veterinario);
             }
             else
             {
-             repositorioVeterinario.AddVeterinario(Veterinario);
+                repositorioVeterinario.AddVeterinario(Veterinario);
             }
             return Page();
         }
